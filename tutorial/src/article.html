@@ -94,7 +94,7 @@ HelloWorld.sayHello();
     It's the name of the library you're gonna publish to npm!
   </p>
 
-  <h3>Step 3: Configure package.json</h3>
+  <h2><span class="step">Step 4</span>: Configure package.json</h2>
 
   <p>
     The <span class="colored">package name</span> is what the consumer going to use in the imports later on,
@@ -146,8 +146,6 @@ HelloWorld.sayHello();
   <p>
     If you don't have a package yet you can create one with <code>npm init</code> and it will guide you through the process.
     Remember, the package name you choose will be the one people later use in their imports, so choose wisely!
-    The version number default is 1.0.0. When you make a patch / bugfix to your library, you can run `npm version patch`,
-    for new features run `npm version minor` and on breaking changes of your api run `npm version major`.
   </p>
 
   <p>
@@ -157,7 +155,7 @@ HelloWorld.sayHello();
     Otherwise the consumer won't find your module!!!
   </p>
 
-  <h3>Step 4: Configure .npmignore</h3>
+  <h3><span class="step">Step 5</span>: Configure .npmignore</h3>
 
   <div class="">
     When you look at your package when loading it from npm,
@@ -175,7 +173,7 @@ HelloWorld.sayHello();
 src</pre>
 
 
-<h3>Step 5: Publish!</h3>
+<h3><span class="step">Step 6</span>: Publish!</h3>
 
   <p>
     To publish your first version to npm run:
@@ -185,7 +183,6 @@ src</pre>
 git add --all
 git commit -m 'version 1'
 git push
-npm version patch
 npm publish
 </pre>
 
@@ -196,10 +193,19 @@ npm publish
 
   <pre class="code-snippet">npm install --save hwrld</pre>
 
-  and consume it using
+  <p>
+  
+    and consume it using
 
+  </p>
+  
   <pre class="code-snippet">import {HelloWorld} from 'hwrld'
 HelloWorld.sayHello();</pre>
+  
+  <p>
+    For subsequent releases, use the semvar principle. When you make a patch / bugfix to your library, you can run `npm version patch`,
+    for new features run `npm version minor` and on breaking changes of your api run `npm version major`.
+  </p>
 
 
 <hr>
