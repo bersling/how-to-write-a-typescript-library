@@ -1,0 +1,108 @@
+<article class="col-8 flex-auto">
+  
+  <h2>Step 1: Setup tsconfig.json</h2>
+  <p>
+    Create your typescript as you would do usually.
+  </p>
+  <p>
+    For example your tsconfig could look like this:
+  </p>
+  
+  
+  <div class="file-label">tsconfig.json</div>
+  <pre class="code-snippet">{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    <span style="color: #ff0000;">"declaration": true,</span>
+    "outDir": "./dist"
+  },
+  "include": [
+    "src/**/*"
+  ]
+}</pre>
+  
+  <p>
+    There is one important addition to what you'd usually do:
+    You need to add the "<span style="color: #ff0000;">declaration: true</span>" flag.
+    Great.
+  </p>
+  
+  <h2>
+    Step 2: Implement your library
+  </h2>
+  
+  <p>
+    Proceed as you would if you had no library. Create a <code>src</code> folder
+    and in that <code>src</code> folder all the files that make up your library.
+  </p>
+  
+  <p>
+    For a silly demo, we'll setup a <code>hello-world.ts</code> file, that looks like so:
+  </p>
+  
+  <div class="file-label">src/hello-world.ts</div>
+  <pre class="code-snippet"></pre>
+  
+  
+  
+  <h2>Step 2: Create src/index.ts</h2>
+  
+  <p>
+    Add an <code>index.ts</code> file to your <code>src</code> folder.
+    The purpose of it is to export all the parts of the library you want to make available for consumers. It could look like so:
+  </p>
+  
+  <pre>export {<span style="color: #ff00ff;">DatabaseResponse</span>, DatabaseError, ReadResponse, CreateResponse, UpdateResponse} from './database-response.model'
+export {DatabaseConfig} from './database-config.model'
+export {<span style="color: #ff00ff;">dao</span>} from './dao'
+export {setupTests} from './testsetup'</pre>
+  
+  <p>
+    In this case the consumer would be able to use the library later on like so:
+  </p>
+  
+  <pre>import {<span style="color: #ff00ff;">DatabaseResponse<span style="color: #000000;">,</span> dao</span>} from '<span style="color: #ff9900;">tsmongo</span>';</pre>
+  or alternatively as
+  <pre>import * as <span style="color: #339966;">mymongo</span> from '<span style="color: #ff6600;">tsmongo</span>';</pre>
+  and in the code <code><span style="color: #339966;">mymongo</span>.<span style="color: #ff00ff;">DatabaseResponse</span></code><span style="color: #ff00ff;"><span style="color: #000000;">. You see that we have a name, here <span style="color: #ff6600;">tsmongo <span style="color: #000000;">we haven't seen anywhere yet. What is this name? It's the name of the library you're gonna publish to npm.</span></span></span></span>
+  
+  <h3>Step 3: Configure package.json</h3>
+  
+  <p>
+    The <span style="color: #ff6600;">package name</span> is what the consumer going to use in the imports later on,
+    so I prefer to not have it too long and if possible with no hyphens since it's easiest
+    just to type a string when declaring the library as an import
+    (an the consumers editor doesn't have auto-import).
+  </p>
+  
+  <p>
+    The <span style="color: #ff6600;">package name</span>
+    is usually right at the top of the package.json, so the package.json starts like
+  </p>
+  
+  <pre>{
+  "<span style="color: #ff6600;">name</span>": "<span style="color: #ff6600;">tsmongo</span>",
+  "<span style="color: #ff0000;">version</span>": "<span style="color: #ff0000;">0.0.0</span>",
+  "<span style="color: #800080;">scripts</span>": {
+    "pub": "git add --all &amp;&amp; git commit -m 'update' &amp;&amp; git push &amp;&amp; npm version patch &amp;&amp; npm publish",
+    "prepublish": "npm run build",
+    "build": "tsc"
+  }
+  "main": "index.js",
+  ...</pre>
+  
+  <p>
+    If you don't have a package yet you can create one with <code>npm init, </code>there it will ask you for the package name. Set the <span style="color: #ff0000;">version</span> to <span style="color: #ff0000;"><code>0.0.0</code></span> in case your just playing around for a bit. Semvar and npm is a bit lost on this "playing around" case, since technically anyone could rely on your package the second you publish it to npm, but it's still better than publishing it with <code>1.0.0 </code>following semvar, and being at version <code>15.0.0</code> after two days of playing around. Alternatively you can not publish it to npm and use <code>npm pack</code> locally. In any case, lets stick with the <code>0.0.0</code> here.
+  </p>
+  
+  I also included a few <span style="color: #800080;">scripts</span> to make playing around with it easier. Run <code>npm run pub</code> to update to version 0.0.1 and publish it. If you don't use git in the library, remove the git specific commands. If you do use git, <strong>make sure you don't have the dist folder gitignored, like with a non-library project</strong>. Commiting the dist folder is required for your consumers to make this work.
+  
+  Great, you're all set to go! A small demo repo can be found here:
+  
+  &nbsp;
+  
+  &nbsp;
+
+</article>
+
