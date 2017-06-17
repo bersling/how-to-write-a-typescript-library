@@ -21,7 +21,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es6",
-    <span style="color: #ff0000;">"declaration": true,</span>
+    <span class="colored">"declaration": true,</span>
     "outDir": "./dist"
   },
   "include": [
@@ -31,7 +31,7 @@
 
   <p>
     Pretty much like a setup for a non-library project, but with one important addition:
-    You need to add the "<span style="color: #ff0000;">declaration: true</span>" flag. This will generate the
+    You need to add the "<span class="colored">declaration: true</span>" flag. This will generate the
     typings required for the consumers to use this library.
   </p>
 
@@ -83,12 +83,12 @@ HelloWorld.sayHello();
     or alternatively as
   </p>
   <div class="file-label">someotherproject/src/somefile.ts</div>
-  <pre class="code-snippet">import * as <span style="color: #339966;">hwrld</span> from '<span style="color: #ff6600;">hwrld</span>';
-<span style="color: #339966;">hwrld</span>.<span style="color: #ff00ff;">HelloWorld</span>
+  <pre class="code-snippet">import * as <span class="colored">hwrld</span> from '<span class="colored">hwrld</span>';
+<span class="colored">hwrld</span>.<span class="colored">HelloWorld</span>
 </pre>
   
   <p>
-    You see that we have something here, <span style="color: #ff6600;">hwrld </span>,
+    You see that we have something here, <span class="colored">hwrld </span>,
     we haven't seen anywhere yet.
     What is this name?
     It's the name of the library you're gonna publish to npm!
@@ -97,7 +97,7 @@ HelloWorld.sayHello();
   <h3>Step 3: Configure package.json</h3>
 
   <p>
-    The <span style="color: #ff6600;">package name</span> is what the consumer going to use in the imports later on,
+    The <span class="colored">package name</span> is what the consumer going to use in the imports later on,
     so I prefer to not have it too long and if possible with no hyphens since it's easiest
     just to type a string when declaring the library as an import
     (an the consumers editor doesn't have auto-import). If you have to type
@@ -106,7 +106,7 @@ HelloWorld.sayHello();
   </p>
 
   <p>
-    The <span style="color: #ff6600;">package name</span>
+    The <span class="colored">package name</span>
     is usually right at the top of the <code>package.json</code>, so the package.json. The whole package json
     would look like so:
   </p>
@@ -134,7 +134,7 @@ HelloWorld.sayHello();
     "world",
     "2017"
   ],
-  "author": "Daniel Niederberger <bersling@gmail.com>",
+  "author": "Daniel Niederberger &lt;bersling@gmail.com&gt;",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bersling/mylib/issues"
