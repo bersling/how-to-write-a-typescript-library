@@ -1,4 +1,13 @@
-<article class="col-8 flex-auto">
+<article class="flex-auto">
+
+  <h2>
+  Foreword
+  </h2>
+  
+  <p>
+    Writing modular code is a good idea. And nothing is more modular than writing a library.
+    How can you do that with typescript? Well, that's exactly what this website is about!
+  </p>
 
   <h2><span class="step">Step 1</span>: Setup tsconfig.json</h2>
   <p>
@@ -50,7 +59,7 @@
 }
 </pre>
 
-  <h2><span class="step">Step 3</span>: Create an index.ts</h2>
+  <h2><span class="step">Step 3</span>: Create an index.ts file</h2>
 
   <p>
     Add an <code>index.ts</code> file to your <code>src</code> folder.
@@ -64,23 +73,20 @@
   <p>
     The consumer would be able to use the library later on like so:
   </p>
-
-  <pre class="code-snippet">import {HelloWorld} from 'hwrld'</pre>
-
-  <p>
-    and in the code <code>HelloWorld.sayHello();</code>
-  </p>
+  
+  <div class="file-label">someotherproject/src/somefile.ts</div>
+  <pre class="code-snippet">import {HelloWorld} from 'hwrld'
+HelloWorld.sayHello();
+</pre>
 
   <p>
     or alternatively as
   </p>
-  <pre>import * as <span style="color: #339966;">hwrld</span> from '<span style="color: #ff6600;">hwrld</span>';</pre>
-
-  <p>
-    and in the code
-    <code><span style="color: #339966;">hwrld</span>.<span style="color: #ff00ff;">HelloWorld</span></code>
-  </p>
-
+  <div class="file-label">someotherproject/src/somefile.ts</div>
+  <pre class="code-snippet">import * as <span style="color: #339966;">hwrld</span> from '<span style="color: #ff6600;">hwrld</span>';
+<span style="color: #339966;">hwrld</span>.<span style="color: #ff00ff;">HelloWorld</span>
+</pre>
+  
   <p>
     You see that we have something here, <span style="color: #ff6600;">hwrld </span>,
     we haven't seen anywhere yet.
@@ -156,6 +162,26 @@
     Otherwise the consumer won't find your module!!!
   </p>
 
+  <h3>Step 4: Configure .npmignore</h3>
+
+  <div class="">
+    When you look at your package when loading it from npm,
+    you'll notice that it contains the dist AND the src folder.
+    However, you don't really need the source folder,
+    as the compiled files along with the typings (.d.ts files)
+    live in the dist folder. Thus you can create an .npmignore
+    file. In our case it's simple:
+  </div>
+
+  <div class="file-label">
+    mylib/.npmignore
+  </div>
+  <pre class="code-snippet">tsconfig.json
+src</pre>
+
+
+<h3>Step 5: Publish!</h3>
+
   <p>
     To publish your first version to npm run:
   </p>
@@ -168,10 +194,6 @@ npm version patch
 npm publish
 </pre>
 
-  <p>
-    If you use git, <strong>make sure you don't have the dist folder gitignored, like with a non-library project</strong>.
-    Commiting the dist folder is required for your consumers to make this work.
-  </p>
 
   <p>
     Now you're all set to go! Consume your library anywhere you want by running:
@@ -184,6 +206,10 @@ npm publish
   <pre class="code-snippet">import {HelloWorld} from 'hwrld'
 HelloWorld.sayHello();</pre>
 
+
+<hr>
+
+
 <div class="">
   Check out the full source of the demo library we've just created on github:
   <a href="https://github.com/bersling/mylib">https://github.com/bersling/mylib</a>
@@ -192,5 +218,7 @@ HelloWorld.sayHello();</pre>
 <div class="">
   Thanks for reading!
 </div>
+
+
 
 </article>

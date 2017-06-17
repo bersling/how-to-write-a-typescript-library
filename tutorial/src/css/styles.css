@@ -78,8 +78,15 @@ main {
     max-width: 100%;
 }
 
+html {
+    // background: #F0F0F0;
+}
+
 article {
     padding: 10px;
+    margin: 0 auto;
+    max-width: 700px;
+    background: white;
 }
 
 
@@ -137,6 +144,16 @@ table.nice-table td:first-child {
     padding: 5px 10px;
 }
 
+.step {
+    color: #3F51B5;
+}
+
+.footer-smallprint {
+    font-size: 10px;
+    text-align: center;
+    padding: 10px;
+}
+
 /* banner styles */
 .jumbotron {
     /* background-image: linear-gradient(90deg,#3F51B5 0,#7986CB); */
@@ -150,6 +167,8 @@ table.nice-table td:first-child {
     max-width: 600px;
     margin: 0 auto;
 }
+
+
 
 /* code-snippet styles */
 
