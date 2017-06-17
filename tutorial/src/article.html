@@ -1,0 +1,196 @@
+<article class="col-8 flex-auto">
+
+  <h2><span class="step">Step 1</span>: Setup tsconfig.json</h2>
+  <p>
+    Create a project folder, in this tutorial we'll call it <code>mylib</code>.
+    Then proceed to create a <code>tsconfig.json</code> in <code>mylib</code>.
+    Your <code>tsconfig.json</code> file should look somewhat like this:
+  </p>
+
+  <div class="file-label">mylib/tsconfig.json</div>
+  <pre class="code-snippet">{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    <span style="color: #ff0000;">"declaration": true,</span>
+    "outDir": "./dist"
+  },
+  "include": [
+    "src/**/*"
+  ]
+}</pre>
+
+  <p>
+    Pretty much like a setup for a non-library project, but with one important addition:
+    You need to add the "<span style="color: #ff0000;">declaration: true</span>" flag. This will generate the
+    typings required for the consumers to use this library.
+  </p>
+
+  <h2>
+    <span class="step">Step 2</span>: Implement your library
+  </h2>
+
+  <p>
+    Proceed as you would if you wouldn't write a library. Create a <code>src</code> folder
+    and in that <code>src</code> folder all the files that make up your heart of your library.
+  </p>
+
+  <p>
+    For this  demo, we'll setup a silly <code>hello-world.ts</code> file, that looks like so:
+  </p>
+
+  <div class="file-label">mylib/src/hello-world.ts</div>
+  <pre class="code-snippet">export namespace HelloWorld {
+  export function sayHello() {
+    console.log('hi')
+  }
+  export function sayGoodbye() {
+    console.log('goodbye')
+  }
+}
+</pre>
+
+  <h2><span class="step">Step 3</span>: Create an index.ts</h2>
+
+  <p>
+    Add an <code>index.ts</code> file to your <code>src</code> folder.
+    The purpose of it is to export all the parts of the library you want to make available for consumers.
+    In our case it would simply be:
+  </p>
+
+  <div class="file-label">mylib/src/index.ts</div>
+  <pre class="code-snippet">export {HelloWorld} from './hello-world'</pre>
+
+  <p>
+    The consumer would be able to use the library later on like so:
+  </p>
+
+  <pre class="code-snippet">import {HelloWorld} from 'hwrld'</pre>
+
+  <p>
+    and in the code <code>HelloWorld.sayHello();</code>
+  </p>
+
+  <p>
+    or alternatively as
+  </p>
+  <pre>import * as <span style="color: #339966;">hwrld</span> from '<span style="color: #ff6600;">hwrld</span>';</pre>
+
+  <p>
+    and in the code
+    <code><span style="color: #339966;">hwrld</span>.<span style="color: #ff00ff;">HelloWorld</span></code>
+  </p>
+
+  <p>
+    You see that we have something here, <span style="color: #ff6600;">hwrld </span>,
+    we haven't seen anywhere yet.
+    What is this name?
+    It's the name of the library you're gonna publish to npm!
+  </p>
+
+  <h3>Step 3: Configure package.json</h3>
+
+  <p>
+    The <span style="color: #ff6600;">package name</span> is what the consumer going to use in the imports later on,
+    so I prefer to not have it too long and if possible with no hyphens since it's easiest
+    just to type a string when declaring the library as an import
+    (an the consumers editor doesn't have auto-import). If you have to type
+    <code>import * as mylib from 'my-crazy-library-name'</code> each time, it's not so pleasant.
+    For this demo I have have chosen <code>hwrld</code> since it was still available on npm.
+  </p>
+
+  <p>
+    The <span style="color: #ff6600;">package name</span>
+    is usually right at the top of the <code>package.json</code>, so the package.json. The whole package json
+    would look like so:
+  </p>
+
+
+  <div class="file-label">mylib/package.json</div>
+  <pre class="code-snippet">{
+  "name": "hwrld",
+  "version": "0.0.2",
+  "description": "Can log \"hello world\" and \"goodbye world\" to the console!",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bersling/mylib.git"
+  },
+  "keywords": [
+    "demo",
+    "typescript",
+    "library",
+    "hello",
+    "world",
+    "2017"
+  ],
+  "author": "Daniel Niederberger <bersling@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bersling/mylib/issues"
+  },
+  "homepage": "https://github.com/bersling/mylib#readme"
+}
+</pre>
+
+  <p>
+    If you don't have a package yet you can create one with <code>npm init</code> and it will guide you through the process.
+    Remember, the package name you choose will be the one people later use in their imports, so choose wisely!
+    Set the <span style="color: #ff0000;">version</span> to <span style="color: #ff0000;"><code>0.0.0</code></span>
+    in case you are first just playing around for a bit.
+    Semvar and npm is a bit lost on this "playing around" case,
+    since technically anyone could rely on your package the second you publish it to npm,
+    but it's still better than publishing it with <code>1.0.0 </code>following semvar, and being at version
+    <code>15.0.0</code> after two days of playing around. Alternatively you can not publish it to npm and use
+    <code>npm pack</code> locally. In any case, lets stick with the <code>0.0.0</code> here.
+  </p>
+
+  <p>
+    There's also one all-important flag in this package.json: You
+    have to declare where to find the type declarations!
+    This is done using <span>types: "disy/index.d.ts"</span>
+    Otherwise the consumer won't find your module!!!
+  </p>
+
+  <p>
+    To publish your first version to npm run:
+  </p>
+
+<pre class="code-snippet">tsc
+git add --all
+git commit -m 'version 1'
+git push
+npm version patch
+npm publish
+</pre>
+
+  <p>
+    If you use git, <strong>make sure you don't have the dist folder gitignored, like with a non-library project</strong>.
+    Commiting the dist folder is required for your consumers to make this work.
+  </p>
+
+  <p>
+    Now you're all set to go! Consume your library anywhere you want by running:
+  </p>
+
+  <pre class="code-snippet">npm install --save hwrld</pre>
+
+  and consume it using
+
+  <pre class="code-snippet">import {HelloWorld} from 'hwrld'
+HelloWorld.sayHello();</pre>
+
+<div class="">
+  Check out the full source of the demo library we've just created on github:
+  <a href="https://github.com/bersling/mylib">https://github.com/bersling/mylib</a>
+</div>
+
+<div class="">
+  Thanks for reading!
+</div>
+
+</article>

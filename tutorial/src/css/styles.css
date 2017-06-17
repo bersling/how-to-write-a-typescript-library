@@ -1,0 +1,246 @@
+/* responsive styles */
+@media (max-width:40rem) {
+    .xs-hide{display:none}
+}
+@media (min-width:40.06rem) and (max-width:52rem) {
+    .sm-hide {
+        display: none;
+    }
+}
+@media (min-width:52.06rem) and (max-width:64rem){
+    .md-hide{display:none}
+}
+@media (min-width: 64.06rem) {
+    .lg-hide {
+        display: none;
+    }
+}
+
+.col-2 {
+    width: 16.66667%;
+}
+.col-8 {
+    width: 66.66667%;
+}
+
+/* body styles */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 161%;
+}
+
+/* paragraph styles */
+p {
+    line-height: 161%;
+}
+
+/* button styles */
+.hamburger {
+    background: transparent;
+    padding: 10px;
+}
+.nav-logo-button {
+    background: transparent;
+    padding: 0;
+    height: 50px;
+}
+button {
+    border: 0;
+    padding: 10px;
+    background: white;
+    border-radius: 2px;
+}
+button.primary {
+    background: #3F51B5;
+    color: white;
+    box-shadow: 1px 1px 5px #888888;
+    font-size: 15px;
+}
+button:hover {
+    cursor: pointer;
+}
+
+/* header styles */
+header {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 50px;
+    z-index: 2;
+    background: RGBA(255, 255, 255, 0.90);
+    box-shadow: 0 0 5px 2px rgba(0,0,0,.1);
+}
+
+/* main styles, content styles */
+main {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+article {
+    padding: 10px;
+}
+
+
+/* sidebar styles */
+.sidebar-button {
+    text-decoration: none;
+    color: #3F51B5;
+    font-weight: 600;
+    display: block;
+    padding: 0 20px;
+}
+
+.sidebar-lg > ul {
+    position: sticky;
+    top: 3rem;
+}
+
+.sidebar {
+    box-shadow: 5px 0 5px -5px rgba(0,0,0,.4);
+    background: white;
+}
+
+
+.sidebar-close-button {
+    color: black;
+}
+
+.sidebar > ul {
+    list-style-type: none;
+    padding: 10px;
+}
+
+.sidebar > ul > li {
+    padding: 10px 0;
+    font-size: 20px;
+}
+
+.sidebar-lg {
+    padding-top: 6rem;
+    /*So it matches up with the clip path polygon */
+    margin-top: calc(-1 * 7rem);
+    min-width: 200px;
+}
+
+/* tables */
+table.nice-table {
+    background: #F5F5F5;
+    width: 100%;
+    padding: 10px;
+}
+
+table.nice-table td:first-child {
+    text-align: right;
+    font-weight: 700;
+    padding: 5px 10px;
+}
+
+/* banner styles */
+.jumbotron {
+    /* background-image: linear-gradient(90deg,#3F51B5 0,#7986CB); */
+    background: #3F51B5;
+    padding: 6rem 0  8rem 0;
+    margin-top: 50px;
+    -webkit-clip-path: polygon(100% 100%,100% 0,-400% 0);
+    clip-path: polygon(100% 100%,100% 0,-400% 0);
+}
+.jumbo-logo-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* code-snippet styles */
+
+.file-label {
+    margin-bottom: -10px;
+    font-size: 0.7rem;
+    color: #459B45;
+}
+.file-label-two {
+    padding: 5px;
+    color: #459B45;
+}
+
+amp-accordion>section>pre.code-snippet {
+    white-space: pre-wrap;
+}
+
+.code-snippet {
+    overflow-x: scroll;
+    padding: 10px;
+    /*box-shadow: 1px 1px 5px 0 #aaaaaa;*/
+    background: #F5F5F5;
+}
+
+.highlight {
+    color: #D0092F;
+}
+
+/* link */
+a {
+
+    color: #D0092F;
+}
+
+/* github link */
+.github-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 250px;
+    height: 3rem;
+    color: white;
+    font-size: 20px;
+    background: #3F51B5;
+    text-decoration: none;
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px 0 #888888;
+}
+
+.github-image {
+    padding-right: 20px;
+    margin-top: -3px;
+}
+
+.github-link-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+/* general styles */
+.flex {
+    display: flex;
+}
+
+.flex-auto {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+}
+
+.center {
+    text-align: center;
+}
+.margin0 {
+    margin: 0 auto;
+}
+
+.anchor {
+    display: block;
+    position: relative;
+    top: -50px;
+    visibility: hidden;
+}
+
+.important {
+    color: #D0092F;
+}
+
+.standard-image-wrapper {
+    max-width: 600px;
+}
