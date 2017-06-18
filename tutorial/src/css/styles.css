@@ -165,6 +165,14 @@ table.nice-table td:first-child {
     margin: 0 auto;
 }
 
+/* highlighting */
+
+.colored {
+    color: #FF4081;
+}
+.colored2 {
+    color: #FF4081;
+}
 
 
 /* code-snippet styles */

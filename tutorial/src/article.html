@@ -75,29 +75,21 @@
   </p>
   
   <div class="file-label">someotherproject/src/somefile.ts</div>
-  <pre class="code-snippet">import {HelloWorld} from 'hwrld'
+  <pre class="code-snippet">import {HelloWorld} from '<span class="colored2">hwrld</span>'
 HelloWorld.sayHello();
-</pre>
-
-  <p>
-    or alternatively as
-  </p>
-  <div class="file-label">someotherproject/src/somefile.ts</div>
-  <pre class="code-snippet">import * as <span class="colored">hwrld</span> from '<span class="colored">hwrld</span>';
-<span class="colored">hwrld</span>.<span class="colored">HelloWorld</span>
 </pre>
   
   <p>
-    You see that we have something here, <span class="colored">hwrld </span>,
+    You see that we have a new name here, "hwrld",
     we haven't seen anywhere yet.
     What is this name?
-    It's the name of the library you're gonna publish to npm!
+    It's the name of the library you're gonna publish to npm also known as the <span class="colored2">package name</span>!
   </p>
 
   <h2><span class="step">Step 4</span>: Configure package.json</h2>
 
   <p>
-    The <span class="colored">package name</span> is what the consumer going to use in the imports later on,
+    The package name is what the consumer going to use in the imports later on,
     so I prefer to not have it too long and if possible with no hyphens since it's easiest
     just to type a string when declaring the library as an import
     (an the consumers editor doesn't have auto-import). If you have to type
@@ -106,7 +98,7 @@ HelloWorld.sayHello();
   </p>
 
   <p>
-    The <span class="colored">package name</span>
+    The package name
     is usually right at the top of the <code>package.json</code>, so the package.json. The whole package json
     would look like so:
   </p>
@@ -118,7 +110,7 @@ HelloWorld.sayHello();
   "version": "1.0.0",
   "description": "Can log \"hello world\" and \"goodbye world\" to the console!",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  <span class="colored">"types": "dist/index.d.ts",</span>
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -151,8 +143,8 @@ HelloWorld.sayHello();
   <p>
     There's also one all-important flag in this package.json: You
     have to declare where to find the type declarations!
-    This is done using <span>types: "disy/index.d.ts"</span>
-    Otherwise the consumer won't find your module!!!
+    This is done using <span class="colored">types: "dist/index.d.ts"</span>
+    Otherwise the consumer won't find your module!
   </p>
 
   <h3><span class="step">Step 5</span>: Configure .npmignore</h3>
