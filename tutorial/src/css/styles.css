@@ -156,8 +156,8 @@ table.nice-table td:first-child {
     background: #3F51B5;
     padding: 6rem 0  8rem 0;
     margin-top: 50px;
-    -webkit-clip-path: polygon(100% 100%,100% 0,-400% 0);
-    clip-path: polygon(100% 100%,100% 0,-400% 0);
+    /* -webkit-clip-path: polygon(100% 100%,100% 0,-400% 0);
+    clip-path: polygon(100% 100%,100% 0,-400% 0); */
 }
 .jumbo-logo-wrapper {
     max-width: 600px;
