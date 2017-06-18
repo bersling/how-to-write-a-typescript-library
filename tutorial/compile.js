@@ -2,7 +2,7 @@ const mu = require('mu2');
 const fs = require('fs');
 const https = require('https');
 
-console.log('=== BUILD SITEMAP ===');
+console.log('=== BUILD SITEMAP && robots ===');
 function copyFile(source, target, cb) {
   var cbCalled = false;
 
@@ -30,6 +30,11 @@ function copyFile(source, target, cb) {
 copyFile('./sitemap.xml', './dist/sitemap.xml', function(err) {
   if (err) {
     console.error('Error on copying sitemap.xml:', err);
+  }
+});
+copyFile('./robots.txt', './dist/robotx.txt', function(err) {
+  if (err) {
+    console.error('Error on copying robots', err);
   }
 });
 
