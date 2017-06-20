@@ -432,3 +432,17 @@ a {
     100% { -webkit-transform: matrix3d(1, 0, 0, 0, 0.839, 1, 0, 0, 0, 0, 1, 0, 500, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0.839, 1, 0, 0, 0, 0, 1, 0, 500, 0, 0, 1); }
 }
 
+/* SOCIAL */
+
+
+.social-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 1ΩΩ00px;
+}
+
+.footer-item {
+    padding: 20px;
+}
+
