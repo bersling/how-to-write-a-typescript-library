@@ -42,7 +42,7 @@ copyFile('./sitemap.xml', './dist/sitemap.xml', function(err) {
     console.error('Error on copying sitemap.xml:', err);
   }
 });
-copyFile('./robots.txt', './dist/robotx.txt', function(err) {
+copyFile('./robots.txt', './dist/robots.txt', function(err) {
   if (err) {
     console.error('Error on copying robots', err);
   }
