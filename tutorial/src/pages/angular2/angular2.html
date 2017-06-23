@@ -37,21 +37,7 @@ here is a simple but comprehensive tutorial!">
 </head>
 <body>
   
-  <amp-analytics type="googleanalytics">
-    <script type="application/json">
-      {
-        "vars": {
-          "account": "UA-70730318-5"
-        },
-        "triggers": {
-          "trackPageview": {
-            "on": "visible",
-            "request": "pageview"
-          }
-        }
-      }
-    </script>
-  </amp-analytics>
+  {{> ./analytics.html}}
   
   <a name="top" class="anchor"></a>
   
@@ -60,12 +46,15 @@ here is a simple but comprehensive tutorial!">
   <div class="jumbotron">
   
     <div class="jumbo-image-wrapper">
-      <amp-img class="jumbo-image animation-target"
-               width="150"
-               height="150"
-               layout="responsive"
-               src="img/how-to-write-an-angular2-library-banner.svg">
-      </amp-img>
+      <div class="jumbo-image-wrapper">
+        <amp-img class="jumbo-image"
+                 alt="Angular2 Library Logo"
+                 width="200"
+                 height="200"
+                 layout="responsive"
+                 src="img/ng2lib.svg">
+        </amp-img>
+      </div>
     </div>
   
     <h1 class="jumbo-text">
