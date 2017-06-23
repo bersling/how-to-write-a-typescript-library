@@ -2,30 +2,16 @@
 <html ⚡ lang="en">
 <head>
   {{> ./common-head.html}}
-  <title>Tutorial for writing a typescript library</title>
-  <meta name="description" content="Looking for how to write a typescript library in 2017 and publish it to npm? Look no further,
-here is a simple but comprehensive tutorial!">
+  <title>How to write a consumer for a Typescript library</title>
+  <meta name="description"
+        content="You've written a typescript library and before publishing it to npm, you want to try it out locally. Here's how!">
   <meta name="keywords"
-        content="Typescript, Tutorial, Example, 2017, Publish, NPM, Library, How to, Guide, Typescript Library">
-  <link rel="canonical" href="http://how-to-write-a-typescript-library.com" />
+        content="Typescript, Tutorial, Library, Example, 2017, Publish, NPM, npm link, How to, Guide, Typescript Library, consumer">
+  <link rel="canonical" href="http://how-to-write-a-typescript-library.com/local-consumer" />
 </head>
 <body>
   
-  <amp-analytics type="googleanalytics">
-    <script type="application/json">
-      {
-        "vars": {
-          "account": "UA-70730318-5"
-        },
-        "triggers": {
-          "trackPageview": {
-            "on": "visible",
-            "request": "pageview"
-          }
-        }
-      }
-    </script>
-  </amp-analytics>
+ {{> ./analytics.html }}
   
   <a name="top" class="anchor"></a>
   
@@ -33,14 +19,20 @@ here is a simple but comprehensive tutorial!">
   
   <div class="jumbotron">
     <div class="jumbo-image-wrapper">
-      <amp-img class="jumbo-image" width="150" height="150" layout="responsive" src="img/consumer.svg"></amp-img>
+      <amp-img class="jumbo-image"
+               alt="Consumer Banner Image"
+               width="150"
+               height="150"
+               layout="responsive"
+               src="img/consumer.svg"></amp-img>
     </div>
     <h1 class="jumbo-text">Create a Consumer for your Library</h1>
   </div>
   
   <article class="flex-auto">
     On <a href="/">the main tutorial</a> we've
-    setup the library <code>'hwrld'</code>. But let's say we're not comfortable publishing it to npm yet and we want to test locally
+    setup the library <code>'hwrld'</code>.
+    But let's say we're not comfortable publishing it to npm yet and we want to test locally
     how it would behave once published.
     Luckily, setting up a consumer for your library is really easy.
     
@@ -104,7 +96,13 @@ HelloWorld.sayHello();</pre>
     and in this example it should log <code>hi</code> to the console. And that's it!
     </p>
   
-    <amp-img placeholder layout="responsive" class="boxed" width=450 height=270 src="/img/ll.gif">
+    <amp-img placeholder
+             alt="How to crete a consumer a typescript library"
+             layout="responsive"
+             class="boxed"
+             width=450
+             height=270
+             src="/img/ll.gif">
     </amp-img>
     
     <div class="spacer10"></div>
@@ -113,7 +111,7 @@ HelloWorld.sayHello();</pre>
       You can now ...
     <ul>
       <li><a href="/"> ... go back to the main tutorial</a></li>
-      <li><a href="/unit-test"> ... read about unit testing</a></li>
+      <li><a href="/unit-testing"> ... read about unit testing</a></li>
       <!--li><a href="/angular2">read about setting up an angular2 library</a></li-->
     </ul>
     </p>
