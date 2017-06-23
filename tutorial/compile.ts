@@ -4,21 +4,12 @@ const https = require('https');
 
 console.log('=== COMPILE SASS ===');
 
-/*var sass = require('node-sass');
+var sass = require('node-sass');
 var result = sass.renderSync({
   file: './src/css/styles.scss',
   outFile: './src/css/styles.css'
 });
-
-
-// No errors during the compilation, write this result on the disk
-fs.writeFile('./src/css/styles.css', result.css, function(err){
-  if(!err){
-    console.log('generated styles.css');
-  }
-});*/
-
-
+fs.writeFileSync('./src/css/styles.css', result.css);
 
 
 console.log('=== BUILD SITEMAP && robots ===');
@@ -61,11 +52,11 @@ console.log('=== COMPILE MUSTACHE ===');
 mu.root = __dirname + '/src';
 const data = {};
 
-const pages = ['index', 'unit-test', 'local-consumer'];
+const pages = ['index', 'unit-test', 'local-consumer', 'angular2'];
 
 pages.forEach(page => {
   const writeStream = fs.createWriteStream(`./dist/${page}.html`);
-  mu.compileAndRender(`${page}/${page}.html`, data)
+  mu.compileAndRender(`pages/${page}/${page}.html`, data)
       .on('data', function (data) {
         writeStream.write(data.toString());
       });

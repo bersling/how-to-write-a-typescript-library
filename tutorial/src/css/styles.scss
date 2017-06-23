@@ -1,3 +1,4 @@
+@import 'variables.scss';
 @import 'animation';
 @import 'responsive';
 @import 'social';
@@ -131,22 +132,31 @@ table.nice-table td:first-child {
   width: 150px;
 }
 
-.local-consumer-gif {
-    width: 650px;
-    height: 390px;
+.local-consumer-img {
+    margin: 0 auto;
+    max-width: 450px;
 }
 
-.local-consumer-gif-wrapper {
+
+hr {
+    padding: 0;
+    border: none;
+    color: #f0f0f0;
     text-align: center;
 }
+hr:after {
+    content: "*  *  *";
+    display: inline-block;
+    position: relative;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+}
+
 
 /* highlighting */
 
-.colored {
-    color: #FF4081;
-}
-.colored2 {
-    color: #FF4081;
+.highlight {
+    color: $accent;
 }
 
 
@@ -186,8 +196,7 @@ amp-accordion>section>pre.code-snippet {
 
 /* link */
 a {
-
-    color: #D0092F;
+    color: $accent;
 }
 
 /* github link */
@@ -251,4 +260,16 @@ a {
     max-width: 600px;
 }
 
+.math-lib-image {
+    max-width: 300px;
+    margin: 0 auto
+}
 
+.intellij-img {
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.boxed {
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}

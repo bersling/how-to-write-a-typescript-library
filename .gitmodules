@@ -1,3 +1,6 @@
 [submodule "mylib"]
 	path = mylib
 	url = https://github.com/bersling/mylib
+[submodule "libex"]
+	path = libex
+	url = https://github.com/bersling/libex

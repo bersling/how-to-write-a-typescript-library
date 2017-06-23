@@ -32,11 +32,8 @@ here is a simple but comprehensive tutorial!">
   {{> ./header.html}}
   
   <div class="jumbotron">
-    <div class="local-consumer-gif-wrapper">
-      <amp-anim width=450 height=270 src="my-gif.gif">
-        <amp-img placeholder width=450 height=270 src="img/ll.gif">
-        </amp-img>
-      </amp-anim>
+    <div class="jumbo-image-wrapper">
+      <amp-img class="jumbo-image" width="150" height="150" layout="responsive" src="img/consumer.svg"></amp-img>
     </div>
     <h1 class="jumbo-text">Create a Consumer for your Library</h1>
   </div>
@@ -84,7 +81,7 @@ here is a simple but comprehensive tutorial!">
     
     <p>
       Now comes the magic. Run
-    <pre class="code-snippet colored">npm link ../mylib</pre>
+    <pre class="code-snippet highlight">npm link ../mylib</pre>
     This will create a symlink in <code>libconsumer</code>'s <code>node_modules</code> to the <code>mylib</code> library.
     To read more on <code>npm link</code>, <a href="https://docs.npmjs.com/cli/link">see the docs</a>.
     </p>
@@ -106,15 +103,18 @@ HelloWorld.sayHello();</pre>
     <pre>node somefile.js</pre>
     and in this example it should log <code>hi</code> to the console. And that's it!
     </p>
+  
+    <amp-img placeholder layout="responsive" class="boxed" width=450 height=270 src="/img/ll.gif">
+    </amp-img>
     
-    <hr>
+    <div class="spacer10"></div>
     
     <p>
-      You can now
+      You can now ...
     <ul>
-      <li><a href="/">go back to the main tutorial</a></li>
-      <li><a href="/unit-testing">read about unit testing</a></li>
-      <li><a href="/angular2">read about setting up an angular2 library</a></li>
+      <li><a href="/"> ... go back to the main tutorial</a></li>
+      <li><a href="/unit-testing"> ... read about unit testing</a></li>
+      <!--li><a href="/angular2">read about setting up an angular2 library</a></li-->
     </ul>
     </p>
   
