@@ -9,3 +9,17 @@
 .footer-item {
     padding: 20px;
 }
+
+amp-social-share.amp-social {
+    border-radius: 50%;
+    background-size: 75%;
+    //background-color: $main-gray;
+}
+/*amp-social-share.amp-social[type="github"] {
+    border-radius: 50%;
+    background-size: 75%;
+    background-color: $main-gray;
+    height: 50px;
+    width: 50px;
+    background-image: url("/img/github.svg");
+}*/

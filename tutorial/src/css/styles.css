@@ -346,6 +346,18 @@
 .footer-item {
   padding: 20px; }
 
+amp-social-share.amp-social {
+  border-radius: 50%;
+  background-size: 75%; }
+
+/*amp-social-share.amp-social[type="github"] {
+    border-radius: 50%;
+    background-size: 75%;
+    background-color: $main-gray;
+    height: 50px;
+    width: 50px;
+    background-image: url("/img/github.svg");
+}*/
 /* sidebar styles */
 .sidebar-button {
   text-decoration: none;
@@ -495,6 +507,10 @@ table.nice-table td:first-child {
 .local-consumer-img {
   margin: 0 auto;
   max-width: 450px; }
+
+.margin-left-right {
+  margin-left: 15px;
+  margin-right: 15px; }
 
 hr {
   padding: 0;

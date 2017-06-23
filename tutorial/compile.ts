@@ -52,7 +52,7 @@ console.log('=== COMPILE MUSTACHE ===');
 mu.root = __dirname + '/src';
 const data = {};
 
-const pages = ['index', 'unit-testing', 'local-consumer', 'angular2'];
+const pages = ['index', 'unit-testing', 'local-consumer'];
 
 pages.forEach(page => {
   const writeStream = fs.createWriteStream(`./dist/${page}.html`);
