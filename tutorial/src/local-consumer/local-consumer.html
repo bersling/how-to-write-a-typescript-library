@@ -1,0 +1,128 @@
+<!doctype html>
+<html ⚡ lang="en">
+<head>
+  {{> ./common-head.html}}
+  <title>Tutorial for writing a typescript library</title>
+  <meta name="description" content="Looking for how to write a typescript library in 2017 and publish it to npm? Look no further,
+here is a simple but comprehensive tutorial!">
+  <meta name="keywords"
+        content="Typescript, Tutorial, Example, 2017, Publish, NPM, Library, How to, Guide, Typescript Library">
+  <link rel="canonical" href="http://how-to-write-a-typescript-library.com" />
+</head>
+<body>
+  
+  <amp-analytics type="googleanalytics">
+    <script type="application/json">
+      {
+        "vars": {
+          "account": "UA-70730318-5"
+        },
+        "triggers": {
+          "trackPageview": {
+            "on": "visible",
+            "request": "pageview"
+          }
+        }
+      }
+    </script>
+  </amp-analytics>
+  
+  <a name="top" class="anchor"></a>
+  
+  {{> ./header.html}}
+  
+  <div class="jumbotron">
+    <div class="local-consumer-gif-wrapper">
+      <amp-anim width=450 height=270 src="my-gif.gif">
+        <amp-img placeholder width=450 height=270 src="img/ll.gif">
+        </amp-img>
+      </amp-anim>
+    </div>
+    <h1 class="jumbo-text">Create a Consumer for your Library</h1>
+  </div>
+  
+  <article class="flex-auto">
+    On <a href="/">the main tutorial</a> we've
+    setup the library <code>'hwrld'</code>. But let's say we're not comfortable publishing it to npm yet and we want to test locally
+    how it would behave once published.
+    Luckily, setting up a consumer for your library is really easy.
+    
+    <h2><span class="step">Step 1:</span> Create a folder</h2>
+    
+    <p>
+      If your library is contained for example in <code>mylib</code>, then create <code>libconsumer</code>
+      next to it so your folder structure looks like this:
+    
+    <pre class="code-snippet">somewhere-on-your-machine
+├── mylib
+└── libconsumer</pre>
+    
+    </p>
+    
+    <h2><span class="step">Step 2:</span> Create a package.json</h2>
+    <p>
+      Create a <code>package.json</code> file. It could look somewhat like this one:
+    <div class="file-label">libconsumer/package.json</div>
+    <pre class="code-snippet">{
+  "name": "libconsumer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}</pre>
+    
+    It actually doesn't matter too much what's in there, but it needs to be present for the next step to work.
+    </p>
+    
+    <h2>
+      <span class="step">Step 3:</span> Link your library
+    </h2>
+    
+    <p>
+      Now comes the magic. Run
+    <pre class="code-snippet colored">npm link ../mylib</pre>
+    This will create a symlink in <code>libconsumer</code>'s <code>node_modules</code> to the <code>mylib</code> library.
+    To read more on <code>npm link</code>, <a href="https://docs.npmjs.com/cli/link">see the docs</a>.
+    </p>
+    
+    <h2>
+      <span class="step">Step 4:</span> Consume your library
+    </h2>
+    
+    <p>
+      Write some file(s) to consume your library. For example
+    <div class="file-label">libconsumer/somefile.ts</div>
+    <pre class="code-snippet">import {HelloWorld} from 'hwrld'
+HelloWorld.sayHello();</pre>
+    
+    You compile this simple example like this:
+    <pre>tsc somefile.ts</pre>
+    
+    Finally you can run
+    <pre>node somefile.js</pre>
+    and in this example it should log <code>hi</code> to the console. And that's it!
+    </p>
+    
+    <hr>
+    
+    <p>
+      You can now
+    <ul>
+      <li><a href="/">go back to the main tutorial</a></li>
+      <li><a href="/unit-testing">read about unit testing</a></li>
+      <li><a href="/angular2">read about setting up an angular2 library</a></li>
+    </ul>
+    </p>
+  
+  </article>
+  
+  {{> ./social-footer.html}}
+  
+  {{> ./footer.html}}
+
+</body>
+</html>
