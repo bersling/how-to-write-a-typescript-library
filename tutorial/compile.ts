@@ -52,7 +52,7 @@ console.log('=== COMPILE MUSTACHE ===');
 mu.root = __dirname + '/src';
 const data = {};
 
-const pages = ['index', 'unit-testing', 'local-consumer'];
+const pages = ['index', 'unit-testing', 'local-consumer', 'angular2'];
 
 pages.forEach(page => {
   const writeStream = fs.createWriteStream(`./dist/${page}.html`);
@@ -70,7 +70,7 @@ pages.forEach(page => {
   amphtmlValidator.getInstance().then(function (validator) {
     const input = fs.readFileSync(`dist/${page}.html`, 'utf8');
     const result = validator.validateString(input);
-    ((result.status === 'PASS') ? console.log : console.error)(result.status);
+    ((result.status === 'PASS') ? console.log : console.error)(`${result.status} (${page})`);
     for (let ii = 0; ii < result.errors.length; ii++) {
       const error = result.errors[ii];
       let msg = 'line ' + error.line + ', col ' + error.col + ': ' + error.message;
