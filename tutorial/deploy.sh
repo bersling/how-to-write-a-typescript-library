@@ -1,4 +1,4 @@
-server=ubuntu@52.59.71.133
+server=ubuntu@35.158.213.131
 
 # Frontend-Only deployment
 npm run build

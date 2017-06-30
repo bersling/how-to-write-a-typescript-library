@@ -5,7 +5,7 @@ import {ServeStaticOptions} from 'serve-static';
 const options: ServeStaticOptions = {
   extensions: ['html']
 };
-
-connect().use(serveStatic(__dirname + '/dist', options)).listen(8081, function(){
-  console.log('Server running on 8081...');
+const port = 8082;
+connect().use(serveStatic(__dirname + '/dist', options)).listen(port, function(){
+  console.log(`Server running on ${port}...`);
 });

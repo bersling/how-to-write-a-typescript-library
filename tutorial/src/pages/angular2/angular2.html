@@ -48,12 +48,14 @@
     
     <p>
       Since AngularCLI nor any of the official Angular resources
-      offer a straightforward way, I've composed my own tutorial.
+      offer a straightforward way, I've composed my own tutorial on how to write an Angular2+ library.
       <b>Note: This tutorial describes how to publish typescript sources to npm. The library will only
-        work for Angular2 projects written in typescript!</b> This is because after hours of trying to make it work, being short
-      of throwing my notebook out the window, I gave up. It was too much stuff with rollup, umd,
+        work for Angular2 projects written in typescript!</b> I don't compile to javascript
+      plus d.ts files, because after hours of trying I was on the brink
+      of throwing my notebook out the window, and I gave up. It was too annoying with rollup, umd,
       MyLibraryModule not found, index.ts names, long waiting times with "yarning" and "ng serving",
-      inlining html and css, crazy tsconfig.json's with deprecated flags, no good local development environment and so on.
+      inlining html and css, crazy tsconfig.json's with deprecated flags, no good local development environment, working version
+      in local project but breaking when published and so on.
       But since a majority of the community uses typescript anyways and it's
       not my fault that it's so damn hard to publish a working library, I'm just going to publish typescript sources.
     </p>
